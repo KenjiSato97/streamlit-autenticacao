@@ -3,15 +3,13 @@ import streamlit as st
 # Simula um banco de dados de usuários (em produção, use hashing adequado)
 USERS = {
     "admin": {"password": "admin123", "role": "admin"},
-    "user": {"password": "user123", "role": "user"},
-    "guest": {"password": "guest123", "role": "guest"}
+    "user": {"password": "user123", "role": "user"}
 }
 
 # Mapeamento de permissões por papel do usuário
 ROLE_PERMISSIONS = {
     "admin": ["dashboard", "configuracoes", "usuarios"],
-    "user": ["dashboard"],
-    "guest": []
+    "user": ["dashboard"]
 }
 
 def initialize_session_state():
@@ -74,7 +72,6 @@ def login_form():
             st.info("""
             - **Admin**: usuário: admin, senha: admin123
             - **Usuário comum**: usuário: user, senha: user123
-            - **Visitante**: usuário: guest, senha: guest123
             """)
 
 def check_authentication():
