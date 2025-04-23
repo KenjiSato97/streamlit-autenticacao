@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#3366CC"  # Azul profissional
+backgroundColor = "#F8F9FA"  # Branco acinzentado suave
+secondaryBackgroundColor = "#E8EAED"  # Cinza muito claro
+textColor = "#333333"  # Preto suave
+font = "sans serif"
