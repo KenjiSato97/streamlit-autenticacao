@@ -19,7 +19,11 @@ def create_dataframes():
         {"id_escola": 2, "nomeEscola": "Colégio Estadual Machado de Assis", 
          "endereco": "Av. Principal, 456", "telefone": "(11) 2345-6789", "email": "machadodeassis@edu.com"},
         {"id_escola": 3, "nomeEscola": "Instituto Educacional Monteiro Lobato", 
-         "endereco": "Rua dos Pinheiros, 789", "telefone": "(11) 3456-5678", "email": "monteirolobato@edu.com"}
+         "endereco": "Rua dos Pinheiros, 789", "telefone": "(11) 3456-5678", "email": "monteirolobato@edu.com"},
+        {"id_escola": 4, "nomeEscola": "Escola Técnica Santos Dumont", 
+         "endereco": "Praça Central, 101", "telefone": "(11) 4567-8901", "email": "santosdumont@edu.com"},
+        {"id_escola": 5, "nomeEscola": "Centro Educacional Cecília Meireles", 
+         "endereco": "Alameda das Acácias, 202", "telefone": "(11) 5678-9012", "email": "ceciliameireles@edu.com"}
     ]
     df_escola = pd.DataFrame(escolas)
     
@@ -30,8 +34,8 @@ def create_dataframes():
     generos = ['Masculino', 'Feminino']
     localizacoes = ['Urbana', 'Rural']
     
-    for i in range(1, 51):  # Criar 50 alunos
-        id_escola = random.randint(1, 3)
+    for i in range(1, 101):  # Criar 100 alunos
+        id_escola = random.randint(1, 5)
         escola_info = next(escola for escola in escolas if escola["id_escola"] == id_escola)
         
         aluno = {
@@ -56,18 +60,15 @@ def create_dataframes():
     ]
     
     for aluno in alunos:
-        # Cada aluno faz entre 1 e 3 provas
-        for _ in range(random.randint(1, 3)):
-            materia = random.choice(materias)
-            
+        # Cada aluno faz 1 prova de cada matéria
+        for materia in materias:
             prova = {
-                "id_prova": len(provas) + 1,
-                "id_aluno": aluno["id_aluno"],
-                "nomeAluno": aluno["nomeAluno"],
-                "materia": materia,
-                "serie": aluno["serie"]
+            "id_prova": len(provas) + 1,
+            "id_aluno": aluno["id_aluno"],
+            "nomeAluno": aluno["nomeAluno"],
+            "materia": materia,
+            "serie": aluno["serie"]
             }
-            
             # Adicionar respostas às questões (de 1 a 10)
             for i in range(1, 11):
                 prova[f"questao_{i}"] = random.choice(['A', 'B', 'C', 'D', 'E'])
@@ -90,7 +91,7 @@ def create_dataframes():
             
             # Definir respostas corretas para as questões de 1 a 10
             for i in range(1, 11):
-                gabarito[f"questao_{i}"] = random.choice(['A', 'B', 'C', 'D'])
+                gabarito[f"questao_{i}"] = random.choice(['A', 'B', 'C', 'D', 'E'])
             
             gabaritos.append(gabarito)
     
