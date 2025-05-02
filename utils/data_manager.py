@@ -71,7 +71,7 @@ def create_dataframes():
             }
             # Adicionar respostas às questões (de 1 a 10)
             for i in range(1, 11):
-                prova[f"questao_{i}"] = random.choice(['A', 'B', 'C', 'D', 'E'])
+                prova[f"questao_{i}"] = random.choice(['A', 'B'])
             
             provas.append(prova)
     
@@ -91,7 +91,7 @@ def create_dataframes():
             
             # Definir respostas corretas para as questões de 1 a 10
             for i in range(1, 11):
-                gabarito[f"questao_{i}"] = random.choice(['A', 'B', 'C', 'D', 'E'])
+                gabarito[f"questao_{i}"] = random.choice(['A', 'B'])
             
             gabaritos.append(gabarito)
     
